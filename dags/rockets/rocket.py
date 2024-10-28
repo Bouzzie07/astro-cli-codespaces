@@ -5,6 +5,7 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 
 from rockets.includes.get_pictures import _get_pictures
+
 from rockets.includes.get_email import task_fail_alert
 
 from airflow.models import Variable
@@ -23,7 +24,6 @@ with DAG(
     start_date=datetime(2024, 10, 28),
     schedule_interval=None,
     catchup=False, #catchup tries to backfill any missed date (historical data)
-    default_args=arg,
     tags=["CoreDataEngineerBootcamp"]
 ) as dag:
     
